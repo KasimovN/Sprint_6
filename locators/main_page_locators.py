@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class MainPageLocators:
 
-    UPPER_ORDER_BUTTON = (By.XPATH, '//*[@class ="Button_Button__ra12g" and text() ="Заказать"]')
+    UPPER_ORDER_BUTTON = (By.XPATH, '//div[contains(@class,"Header_Nav")]/button[ text() ="Заказать"]')
     LOWER_ORDER_BUTTON = (By.XPATH, '//div[@class ="Home_FinishButton__1_cWm"]/button')
     COOKIE_BUTTON = (By.XPATH, '//*[text()="да все привыкли"]')
 

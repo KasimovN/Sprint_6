@@ -1,6 +1,8 @@
 class Scooter:
 
     URL = 'https://qa-scooter.praktikum-services.ru/'
+    URL_ORDER = 'https://qa-scooter.praktikum-services.ru/order'
+    URL_DZEN = 'https://dzen.ru/'
 
     # Список вопросов/ответов на главной странице
     QUESTIONS = ['Сколько это стоит? И как оплатить?',

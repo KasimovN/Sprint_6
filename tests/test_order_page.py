@@ -1,9 +1,9 @@
 import allure
 import pytest
-from selenium.webdriver.common.by import By
 
 from data import Scooter
 from helper import Helper
+from locators.dzen_locator import DzenLocators
 from locators.order_page_locators import OrderPageLocators
 from pages.order_page import OrderPage
 
@@ -15,7 +15,7 @@ class TestOrderPage:
         upper_order_button = OrderPage(driver)
         upper_order_button.click_cookie_button()
         upper_order_button.wait_and_find_element(OrderPageLocators.UPPER_ORDER_BUTTON).click()
-        assert driver.current_url == 'https://qa-scooter.praktikum-services.ru/order'
+        assert driver.current_url == Scooter.URL_ORDER
 
     @allure.step('Тестируем переход на страницу заказа через нижнюю кнопку "Заказать"')
     def test_lower_order_button(self, driver):
@@ -64,5 +64,5 @@ class TestOrderPage:
         yandex_logo.click_element(OrderPageLocators.YANDEX_LOGO)
         windows = driver.window_handles
         driver.switch_to.window(windows[1])
-        yandex_logo.wait_and_find_element((By.XPATH, '//*[text()="Найти"]'))
-        assert 'https://dzen.ru/' in driver.current_url and len(windows) == 2
+        yandex_logo.wait_and_find_element(DzenLocators.FIND_BUTTON)
+        assert Scooter.URL_DZEN in driver.current_url and len(windows) == 2
